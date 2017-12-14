@@ -16,10 +16,11 @@ let config = require('./config');
 
 let indexRoute = require('./routes/index');
 let authRoute = require('./routes/auth');
+let taskRoute = require('./routes/task');
 
 mongoose.connect(config.dbConnstring);
 global.User = require('./models/user');
-
+global.Task = require('./models/task');
 let app = express();
 
 // view engine setup
@@ -55,7 +56,7 @@ app.use(function(req, res, next){
 
 app.use('/', indexRoute);
 app.use('/', authRoute);
-
+app.use('/', taskRoute);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
