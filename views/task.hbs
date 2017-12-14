@@ -52,7 +52,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.32.0/mode/javascript/javascript.min.js"></script>
 <script src="/plugins/ot/ot.js"></script>
 <script src="/socket.io/socket.io.js"></script>
-<script src="https://protected-fjord-78055.herokuapp.com/peer/peer.js"></script>
+<script src="https://codetutorserver.herokuapp.com/peer/peer.js"></script>
 <script>
   let EditorClient = ot.EditorClient;
   let SocketIOAdapter = ot.SocketIOAdapter;
@@ -112,11 +112,11 @@
    navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
    // PeerJS object
    let peer = new Peer(username + roomId, {
-    host: 'protected-fjord-78055.herokuapp.com',
+    host: 'codetutorserver.herokuapp.com',
     path: '/peerjs',
     port: 443,
     secure: true,
-    key: 'codetogether',
+    key: 'codetutor',
     debug: true
    });
    peer.on('open', function(){
