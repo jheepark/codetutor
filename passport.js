@@ -36,7 +36,7 @@ passport.use(new LocalStrategy({
 passport.use(new FacebookStrategy({
   clientID: process.env.CODETUTOR_FACEBOOK_APPID,
   clientSecret: process.env.CODETUTOR_FACEBOOK,
-  callbackURL: 'http://localhost:3000/auth/facebook/callback',
+  callbackURL: 'https://code-tutor.herokuapp.com/auth/facebook/callback',
   profileFields: ['id', 'displayName', 'email']
 },
   // find in the database any profile that we have to match with the facebookId. If it finds the user,it returns the user to the front page.
