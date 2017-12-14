@@ -8,6 +8,6 @@ module.exports = {
       pass: process.env.NODEMAILER_PASSWORD
     }
   },
-  dbConnstring: 'mongodb://127.0.0.1:27017/codetutor',
+  dbConnstring: 'mongodb://admin:chicken@ds137336.mlab.com:37336/codetutor',
   sessionKey: 'codetutorsessionkey'
 }
