@@ -1,7 +1,8 @@
 <div>
   <div class="row">
     <div class="col-md-8">
-      <textarea id="code-screen"></textarea>
+      <!-- display content from the database -->
+      <textarea id="code-screen">{{content}}</textarea>
     </div>
     <div class="col-md-4" id="chatbox">
       <div class="card">
@@ -44,9 +45,13 @@
     theme: "monokai"
   });
 
+  let code = $('#code-screen').val();
+
   let cmClient;
   function init(str, revision, clients, serverAdapter) {
-    editor.setValue(str);
+    if(!code){
+      editor.setValue(str); //display default text
+    }
     cmClient = window.cmClient = new EditorClient(
       revision, clients, serverAdapter, new CodeMirrorAdapter(editor)
     )

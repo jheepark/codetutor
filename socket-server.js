@@ -13,7 +13,11 @@ module.exports = function(server) {
       //will create a specific room and the socket will know how many people or which users are using the same room
         if (!roomList[data.room]){
           let socketIOServer = new ot.EditorSocketIOServer(str, [], data.room, function(socket, cb) {
-            cb(true); //if everything is running perfectly
+            let self = this
+            Task.findByIdAndUpdate(data.room, {content: self.document}, function(err) {
+              if(err) return cb(false);
+              cb(true);
+            });
           });
           roomList[data.room] = socketIOServer;
         }

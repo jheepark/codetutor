@@ -21,8 +21,8 @@ router.get('/task/:id', function(req, res){
         console.log(err);
         res.render('error'); //redners the error page
       }
-      if(data) {
-        res.render('task', {data: data, roomId: data.id});
+      if(data) { //represents the task object
+        res.render('task', {content: data.content, roomId: data.id});
       } else {
         res.render('error');
       }
